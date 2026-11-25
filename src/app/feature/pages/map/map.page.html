@@ -1,0 +1,83 @@
+<div class="relative h-screen w-full overflow-hidden">
+  <!-- Mapa interativo em tela cheia -->
+  <ng-map [center]="[-46.63, -23.55]" [zoom]="10">
+    <ng-map-controls />
+    <ng-map-marker [longitude]="-46.63" [latitude]="-23.55">
+      <ng-marker-content />
+      <ng-marker-popup>São Paulo</ng-marker-popup>
+    </ng-map-marker>
+  </ng-map>
+
+  <!-- Action Sheet / Bottom Sheet Arrastável com Snap Points Fixos -->
+  <z-drawer
+    [(zVisible)]="isDrawerOpen"
+    [zPlacement]="'bottom'"
+    [zSnapPoints]="snapPoints"
+    [(zSnapPoint)]="activeSnapPoint"
+    [zDismissible]="false"
+    [zHandle]="true"
+    [zModal]="false"
+    class="max-w-lg mx-auto shadow-2xl border-t"
+  >
+    <z-drawer-header class="text-left pb-2">
+      <div class="flex items-center justify-between">
+        <div>
+          <z-drawer-description class="text-xs text-muted-foreground">
+            Sentido Terminal Pinheiros • Próximo em 4 min
+          </z-drawer-description>
+        </div>
+        <span
+          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary"
+        >
+          Em trânsito
+        </span>
+      </div>
+    </z-drawer-header>
+
+    <!-- Conteúdo do painel rolável ao expandir -->
+    <div class="px-4 py-2 overflow-y-auto flex flex-col gap-3">
+      <div class="flex items-center justify-between p-3 rounded-lg bg-yellow-200/50 border border-yellow-200">
+        <div class="flex flex-col">
+          <span class="text-xs text-muted-foreground">Próxima parada</span>
+          <span class="text-sm font-semibold">Av. Paulista, 1578</span>
+        </div>
+        <div class="text-right">
+          <span class="text-sm font-bold text-primary">00:09 </span>
+          <span class="text-xs text-muted-foreground">á frente</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between p-3 rounded-lg bg-yellow-200/50 border border-yellow-200">
+        <div class="flex flex-col">
+          <span class="text-xs text-muted-foreground">Próxima parada</span>
+          <span class="text-sm font-semibold">Av. Paulista, 1578</span>
+        </div>
+        <div class="text-right">
+          <span class="text-sm font-bold text-primary">00:18 </span>
+          <span class="text-xs text-muted-foreground">á frente</span>
+        </div>
+      </div>
+      <!-- atras-->
+      <div class="flex items-center justify-between p-3 rounded-lg bg-red-200/50 border border-red-200">
+        <div class="flex flex-col">
+          <span class="text-xs text-muted-foreground">Próxima parada</span>
+          <span class="text-sm font-semibold">Av. Paulista, 1578</span>
+        </div>
+        <div class="text-right">
+          <span class="text-sm font-bold text-primary">00:04 </span>
+          <span class="text-xs text-muted-foreground">á trás</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between p-3 rounded-lg bg-red-200/50 border border-red-200">
+        <div class="flex flex-col">
+          <span class="text-xs text-muted-foreground">Próxima parada</span>
+          <span class="text-sm font-semibold">Av. Paulista, 1578</span>
+        </div>
+        <div class="text-right">
+          <span class="text-sm font-bold text-primary">00:07 </span>
+          <span class="text-xs text-muted-foreground">atrás</span>
+        </div>
+      </div>
+    </div>
+  </z-drawer>
+</div>

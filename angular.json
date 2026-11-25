@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@ionic/angular-toolkit:page": {
-          "styleext": "scss",
+          "styleext": "css",
           "standalone": true
         }
       },
@@ -31,9 +31,21 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "maplibre-gl-worker.mjs",
+                "input": "node_modules/maplibre-gl/dist",
+                "output": "/"
+              },
+              {
+                "glob": "maplibre-gl-shared.mjs",
+                "input": "node_modules/maplibre-gl/dist",
+                "output": "/"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/styles/global.css"
+            ],
             "scripts": [],
             "browser": "src/main.ts"
           },
@@ -97,7 +109,9 @@
           "options": {
             "buildTarget": "::development",
             "runnerConfig": "vitest.config.mts",
-            "setupFiles": ["src/test-setup.ts"],
+            "setupFiles": [
+              "src/test-setup.ts"
+            ],
             "tsConfig": "tsconfig.spec.json"
           }
         },
@@ -116,15 +130,18 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": "d653c775-5ef7-4e11-ad34-ea43b86c34e5"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
-      "styleext": "scss",
+      "styleext": "css",
       "standalone": true
     },
     "@ionic/angular-toolkit:page": {
-      "styleext": "scss",
+      "styleext": "css",
       "standalone": true
     },
     "@angular-eslint/schematics:application": {
