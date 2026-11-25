@@ -1,4 +1,9 @@
 <div class="relative h-screen w-full overflow-hidden">
+  <div class="absolute w-full h-16 z-50 top-0 bg-secondary flex items-center justify-start px-3">
+    <div class="w-12 h-12 bg-yellow-300 rounded-md flex items-center justify-center">
+      <ng-icon name="lucideBusFront" size="28" strokeWidth="2.5" class="text-black font-bold"></ng-icon>
+    </div>
+  </div>
   <!-- Mapa interativo em tela cheia -->
   <ng-map [center]="[-46.63, -23.55]" [zoom]="10">
     <ng-map-controls />
@@ -26,11 +31,12 @@
             Sentido Terminal Pinheiros • Próximo em 4 min
           </z-drawer-description>
         </div>
-        <span
-          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary"
+        <z-button
+          class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-primary/10 text-primary"
         >
-          Em trânsito
-        </span>
+          <ng-icon name="lucideArrowLeftRight"></ng-icon>
+          Trocar Rota
+        </z-button>
       </div>
     </z-drawer-header>
 

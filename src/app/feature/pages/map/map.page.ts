@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideArrowLeftRight, lucideBusFront } from '@ng-icons/lucide';
 import {
   MapComponent,
   MapControlsComponent,
@@ -7,6 +9,7 @@ import {
   MarkerPopupComponent,
 } from 'ng-mapcn';
 
+import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardDrawerImports } from '@/shared/components/drawer';
 
 @Component({
@@ -20,6 +23,14 @@ import { ZardDrawerImports } from '@/shared/components/drawer';
     MarkerContentComponent,
     MarkerPopupComponent,
     ...ZardDrawerImports,
+    ZardButtonComponent,
+    NgIcon,
+  ],
+  providers: [
+    provideIcons({
+      lucideArrowLeftRight,
+      lucideBusFront,
+    }),
   ],
 })
 export class MapPage {
