@@ -1,0 +1,7 @@
+{
+  "name": "yellow-bus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
